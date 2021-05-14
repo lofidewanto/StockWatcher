@@ -8,6 +8,7 @@ import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.ServiceDefTarget;
 import com.google.gwt.user.client.ui.*;
 import stockwatcher.client.StockPrice;
 
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
 public class ResponseFromServerPanel {
     private static final int REFRESH_INTERVAL = 5000; // ms
     private ArrayList<String> stocks = new ArrayList<String>();
-    private StockPriceServiceAsync stockPriceSvc = GWT.create(StockPriceService.class);
+    private StockPriceServiceAsync stockPriceSvc;
 
     private VerticalPanel mainPanel = new VerticalPanel();
     private FlexTable stocksFlexTable = new FlexTable();
@@ -139,6 +140,8 @@ public class ResponseFromServerPanel {
         // Initialize the service proxy.
         if (stockPriceSvc == null) {
             stockPriceSvc = GWT.create(StockPriceService.class);
+            ServiceDefTarget serviceDefTarget = (ServiceDefTarget) stockPriceSvc;
+            serviceDefTarget.setServiceEntryPoint("http://localhost:8080/stockwatcher/stockPrices?symbols=sre,sdfdfsd,sdfd");
         }
 
         // Set up the callback object.
