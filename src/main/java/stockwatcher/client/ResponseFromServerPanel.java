@@ -1,19 +1,24 @@
 package stockwatcher.client;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import stockwatcher.client.StockPrice;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Logger;
 
 public class ResponseFromServerPanel {
     private static final int REFRESH_INTERVAL = 5000; // ms
+    private ArrayList<String> stocks = new ArrayList<String>();
+    private StockPriceServiceAsync stockPriceSvc = GWT.create(StockPriceService.class);
 
     private VerticalPanel mainPanel = new VerticalPanel();
     private FlexTable stocksFlexTable = new FlexTable();
@@ -21,7 +26,6 @@ public class ResponseFromServerPanel {
     private TextBox newSymbolTextBox = new TextBox();
     private Button addStockButton = new Button("Add");
     private Label lastUpdatedLabel = new Label();
-    private ArrayList<String> stocks = new ArrayList<String>();
 
     public VerticalPanel createMainPanel() {
         // Create table for stock data.
@@ -132,19 +136,25 @@ public class ResponseFromServerPanel {
     }
 
     private void refreshWatchList() {
-        final double MAX_PRICE = 100.0; // $100.00
-        final double MAX_PRICE_CHANGE = 0.02; // +/- 2%
-
-        StockPrice[] prices = new StockPrice[stocks.size()];
-        for (int i = 0; i < stocks.size(); i++) {
-            double price = Random.nextDouble() * MAX_PRICE;
-            double change = price * MAX_PRICE_CHANGE
-                    * (Random.nextDouble() * 2.0 - 1.0);
-
-            prices[i] = new StockPrice(stocks.get(i), price, change);
+        // Initialize the service proxy.
+        if (stockPriceSvc == null) {
+            stockPriceSvc = GWT.create(StockPriceService.class);
         }
 
-        updateTable(prices);
+        // Set up the callback object.
+        AsyncCallback<StockPrice[]> callback = new AsyncCallback<StockPrice[]>() {
+            public void onFailure(Throwable caught) {
+                Logger logger = Logger.getLogger("StockWatcher");
+                logger.severe("ERROR!!! " + caught);
+            }
+
+            public void onSuccess(StockPrice[] result) {
+                updateTable(result);
+            }
+        };
+
+        // Make the call to the stock price service.
+        stockPriceSvc.getPrices(stocks.toArray(new String[0]), callback);
     }
 
     /**

@@ -1,9 +1,11 @@
 package stockwatcher.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.*;
 
 public class StockWatcher implements EntryPoint {
+
     TabPanel tabPanel = new TabPanel ();
     ResponseFromServerPanel responseFromServerPanel = new ResponseFromServerPanel();
     FileUploadPanel fileUploadPanel = new FileUploadPanel();
