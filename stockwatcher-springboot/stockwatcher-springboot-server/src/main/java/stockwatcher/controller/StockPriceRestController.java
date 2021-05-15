@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import stockwatcher.shared.StockPrice;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/stockwatcher")
 public class StockPriceRestController {
     
 	public StockPrice[] prices = new StockPrice[] {new StockPrice("AMZN", 100, 0.3), new StockPrice("MSFT", 10, 0.5)};
 
-    @CrossOrigin
     @GetMapping("/stockPrices")
     public StockPrice[] getPrices(@RequestParam(value="symbols") String[] symbols) {
         if(symbols.length > 0) {
