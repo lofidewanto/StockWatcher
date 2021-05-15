@@ -11,7 +11,7 @@ public class WebConfig {
 
 	@Bean
 	public ServletRegistrationBean<StockPriceServiceImpl> servletRegistrationBean() {
-		return new ServletRegistrationBean<StockPriceServiceImpl>(new StockPriceServiceImpl(), "/stockwatcher" + "/*");
+		return new ServletRegistrationBean<StockPriceServiceImpl>(new StockPriceServiceImpl(), "/stockwatcher/stockPrice" + "/*");
 	}
 
 }
