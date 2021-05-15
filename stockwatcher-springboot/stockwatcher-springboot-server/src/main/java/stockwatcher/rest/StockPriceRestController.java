@@ -5,13 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import stockwatcher.shared.StockPrice;
 
-@org.springframework.web.bind.annotation.RestController
+@RestController
 @RequestMapping("/stockwatcher")
-public class RestController {
-    public StockPrice[] prices = new StockPrice[] {new StockPrice("AMZN", 100, 0.3), new StockPrice("MSFT", 10, 0.5)};
+public class StockPriceRestController {
+    
+	public StockPrice[] prices = new StockPrice[] {new StockPrice("AMZN", 100, 0.3), new StockPrice("MSFT", 10, 0.5)};
 
     @CrossOrigin
     @GetMapping("/stockPrices")
