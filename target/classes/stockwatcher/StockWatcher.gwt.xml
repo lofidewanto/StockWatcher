@@ -1,7 +1,0 @@
-<module>
-    <inherits name="com.google.gwt.user.User"/>
-    <entry-point class="stockwatcher.client.StockWatcher"/>
-    <inherits name='com.google.gwt.user.theme.standard.Standard'/>
-    <!--<source path="client"/>-->
-    <!--<public path="public"/>-->
-</module>
