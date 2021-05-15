@@ -1,2 +1,2 @@
 # stockwatcher
-Learning from GWT tutorial on StockWatcher using maven instead of Eclipse plugin.
+Learning from GWT tutorial on StockWatcher using Maven instead of Eclipse plugin.
