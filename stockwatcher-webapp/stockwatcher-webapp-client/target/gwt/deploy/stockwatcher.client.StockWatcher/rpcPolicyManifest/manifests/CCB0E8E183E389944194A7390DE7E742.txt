@@ -1,2 +1,0 @@
-serviceClass: stockwatcher.shared.StockPriceService
-path: AD01F395D155EA95599341BFAA96C4D6.gwt.rpc
