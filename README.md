@@ -3,7 +3,7 @@
 Learning from GWT tutorial on StockWatcher using Maven instead of Eclipse plugin.
 
 
-# StockWatcher with GWT RPC and Simple Jetty Server
+# stockwatcher-webapp: StockWatcher with GWT RPC and Simple Jetty Server
 
 ## Run in the development
 
