@@ -1,0 +1,3 @@
+# Module stockwatcher.client.StockWatcher
+# RPC service class, partial path of RPC policy file
+stockwatcher.shared.StockPriceService, AD01F395D155EA95599341BFAA96C4D6.gwt.rpc

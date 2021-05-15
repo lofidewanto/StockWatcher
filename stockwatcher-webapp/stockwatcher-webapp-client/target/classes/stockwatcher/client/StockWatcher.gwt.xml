@@ -1,0 +1,8 @@
+<module>
+  <inherits name="com.google.gwt.user.User"/>
+  <inherits name="com.google.gwt.user.theme.clean.Clean"/>
+  <inherits name="stockwatcher.StockWatcherShared"/>
+  <entry-point class="stockwatcher.client.StockWatcher"/>
+  <source path=""/>
+  <set-property name="user.agent" value="ie10,gecko1_8,safari"/>
+</module>
