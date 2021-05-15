@@ -1,4 +1,4 @@
-package stockwatcher.rest;
+package stockwatcher.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
