@@ -53,9 +53,9 @@
 				<groupId>net.ltgt.gwt.maven</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
 				<configuration>
-					<moduleName>com.example.Example</moduleName>
+					<moduleName>stockwatcher.client.StockWatcher</moduleName>
 					<startupUrls>
-						<url>/example/</url>
+						<url>/stockwatcher/</url>
 					</startupUrls>
 					<compilerArgs>
 						<arg>-generateJsInteropExports</arg>
