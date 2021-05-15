@@ -2,17 +2,14 @@ package stockwatcher.server;
 
 import java.util.Random;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-
 import stockwatcher.shared.StockPrice;
 import stockwatcher.shared.StockPriceService;
 
-@CrossOrigin
 public class StockPriceServiceImpl extends com.google.gwt.user.server.rpc.RemoteServiceServlet
 		implements StockPriceService {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private static final double MAX_PRICE = 100.0; // $100.00
 	private static final double MAX_PRICE_CHANGE = 0.02; // +/- 2%
 
