@@ -1,5 +1,7 @@
 package stockwatcher.client;
 
+import java.util.ArrayList;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
@@ -14,5 +16,5 @@ public interface StockPriceServiceClient {
 
 	@GET
 	@Path(StockPriceServiceEndpoint.STOCK_PRICE_REST)
-	public StockPrice[] getPrices(@QueryParam("symbols") String symbols);
+	public StockPrice[] getPrices(@QueryParam("symbols") ArrayList<String> symbols);
 }

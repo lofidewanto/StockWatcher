@@ -159,7 +159,8 @@ public class ResponseFromServerPanel {
 		if (stockPriceSvc == null) {
 			stockPriceSvc = GWT.create(StockPriceService.class);
 			ServiceDefTarget serviceDefTarget = (ServiceDefTarget) stockPriceSvc;
-			serviceDefTarget.setServiceEntryPoint("http://localhost:8080/server/stockPrices?symbols=sre,sdfdfsd,sdfd");
+			serviceDefTarget.setServiceEntryPoint(StockPriceServiceEndpoint.SERVER_CONTEXT_PATH
+					+ StockPriceServiceEndpoint.STOCK_PRICE_RPC + "?symbols=sre,sdfdfsd,sdfd");
 		}
 
 		// Set up the callback object.
@@ -185,9 +186,7 @@ public class ResponseFromServerPanel {
 
 		DominoRestConfig.getInstance().setDefaultServiceRoot(StockPriceServiceEndpoint.SERVER_CONTEXT_PATH);
 
-		String[] symbols = stocks.toArray(new String[0]);
-
-		StockPriceServiceClientFactory.INSTANCE.getPrices("abc").onSuccess(response -> {
+		StockPriceServiceClientFactory.INSTANCE.getPrices(stocks).onSuccess(response -> {
 			logger.info("Result: " + response);
 			updateTable(response);
 		}).onFailed(failedResponse -> {

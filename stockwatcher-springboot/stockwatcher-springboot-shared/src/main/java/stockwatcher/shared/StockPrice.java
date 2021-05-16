@@ -2,6 +2,11 @@ package stockwatcher.shared;
 
 import java.io.Serializable;
 
+import org.dominokit.jackson.annotation.JSONMapper;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@JSONMapper
 public class StockPrice implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -31,6 +36,7 @@ public class StockPrice implements Serializable {
 		return this.change;
 	}
 
+	@JsonIgnore
 	public double getChangePercent() {
 		return 100.0 * this.change / this.price;
 	}

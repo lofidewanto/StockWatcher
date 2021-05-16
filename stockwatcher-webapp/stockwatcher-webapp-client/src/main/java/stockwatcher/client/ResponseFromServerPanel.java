@@ -154,7 +154,7 @@ public class ResponseFromServerPanel {
 			stockPriceSvc = GWT.create(StockPriceService.class);
 			ServiceDefTarget serviceDefTarget = (ServiceDefTarget) stockPriceSvc;
 			serviceDefTarget.setServiceEntryPoint(StockPriceServiceEndpoint.SERVER_CONTEXT_PATH
-					+ StockPriceServiceEndpoint.STOCK_PRICE_SERVICE + "?symbols=sre,sdfdfsd,sdfd");
+					+ StockPriceServiceEndpoint.STOCK_PRICE_RPC + "?symbols=sre,sdfdfsd,sdfd");
 		}
 
 		// Set up the callback object.
