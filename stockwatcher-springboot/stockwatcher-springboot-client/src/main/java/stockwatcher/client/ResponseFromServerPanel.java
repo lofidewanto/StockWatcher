@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Logger;
 
+import org.dominokit.rest.DominoRestConfig;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -26,8 +28,11 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import stockwatcher.shared.StockPrice;
 import stockwatcher.shared.StockPriceService;
 import stockwatcher.shared.StockPriceServiceAsync;
+import stockwatcher.shared.StockPriceServiceEndpoint;
 
 public class ResponseFromServerPanel {
+
+	private static Logger logger = Logger.getLogger(ResponseFromServerPanel.class.getName());
 
 	private static final int REFRESH_INTERVAL = 5000; // ms
 	private ArrayList<String> stocks = new ArrayList<String>();
@@ -76,7 +81,7 @@ public class ResponseFromServerPanel {
 		Timer refreshTimer = new Timer() {
 			@Override
 			public void run() {
-				refreshWatchList();
+				refreshWatchListWithRest();
 			}
 		};
 		refreshTimer.scheduleRepeating(REFRESH_INTERVAL);
@@ -144,16 +149,17 @@ public class ResponseFromServerPanel {
 
 		// TODO Get the stock price.
 		// Get the stock price.
-		refreshWatchList();
+		refreshWatchListWithRest();
 	}
 
-	private void refreshWatchList() {
+	void refreshWatchListWithRpc() {
+		logger.info("STOCK: GWT RPC");
+
 		// Initialize the service proxy.
 		if (stockPriceSvc == null) {
 			stockPriceSvc = GWT.create(StockPriceService.class);
 			ServiceDefTarget serviceDefTarget = (ServiceDefTarget) stockPriceSvc;
-			serviceDefTarget
-					.setServiceEntryPoint("http://localhost:8080/stockwatcher/stockPrices?symbols=sre,sdfdfsd,sdfd");
+			serviceDefTarget.setServiceEntryPoint("http://localhost:8080/server/stockPrices?symbols=sre,sdfdfsd,sdfd");
 		}
 
 		// Set up the callback object.
@@ -170,6 +176,23 @@ public class ResponseFromServerPanel {
 
 		// Make the call to the stock price service.
 		stockPriceSvc.getPrices(stocks.toArray(new String[0]), callback);
+	}
+
+	void refreshWatchListWithRest() {
+		logger.info("STOCK: REST");
+
+		DominoRestConfig.initDefaults();
+
+		DominoRestConfig.getInstance().setDefaultServiceRoot(StockPriceServiceEndpoint.SERVER_CONTEXT_PATH);
+
+		String[] symbols = stocks.toArray(new String[0]);
+
+		StockPriceServiceClientFactory.INSTANCE.getPrices("abc").onSuccess(response -> {
+			logger.info("Result: " + response);
+			updateTable(response);
+		}).onFailed(failedResponse -> {
+			logger.info("Error: " + failedResponse.getStatusCode() + "\nMessages: " + failedResponse.getStatusText());
+		}).send();
 	}
 
 	/**

@@ -11,7 +11,7 @@
 
   <servlet-mapping>
     <servlet-name>stockPrices</servlet-name>
-    <url-pattern>stockwatcher/stockPrices</url-pattern>
+    <url-pattern>server/stockPrices</url-pattern>
   </servlet-mapping>
 
 	<!-- Default page to serve -->

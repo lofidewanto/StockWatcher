@@ -26,8 +26,10 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import stockwatcher.shared.StockPrice;
 import stockwatcher.shared.StockPriceService;
 import stockwatcher.shared.StockPriceServiceAsync;
+import stockwatcher.shared.StockPriceServiceEndpoint;
 
 public class ResponseFromServerPanel {
+
 	private static final int REFRESH_INTERVAL = 5000; // ms
 	private ArrayList<String> stocks = new ArrayList<String>();
 	private StockPriceServiceAsync stockPriceSvc;
@@ -151,8 +153,8 @@ public class ResponseFromServerPanel {
 		if (stockPriceSvc == null) {
 			stockPriceSvc = GWT.create(StockPriceService.class);
 			ServiceDefTarget serviceDefTarget = (ServiceDefTarget) stockPriceSvc;
-			serviceDefTarget
-					.setServiceEntryPoint("http://localhost:8080/stockwatcher/stockPrices?symbols=sre,sdfdfsd,sdfd");
+			serviceDefTarget.setServiceEntryPoint(StockPriceServiceEndpoint.SERVER_CONTEXT_PATH
+					+ StockPriceServiceEndpoint.STOCK_PRICE_SERVICE + "?symbols=sre,sdfdfsd,sdfd");
 		}
 
 		// Set up the callback object.
