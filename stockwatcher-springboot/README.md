@@ -5,6 +5,8 @@ Learning from GWT tutorial on [StockWatcher](http://www.gwtproject.org/doc/lates
 
 # stockwatcher-springboot: StockWatcher with GWT RPC / REST and Spring Boot Server
 
+**Attention: GWT RPC doesn't work yet!**
+
 ## Run in the development
 
 Always from stockwatcher-springboot directory. If you are on the main directory go there first:
@@ -29,10 +31,11 @@ mvn gwt:generate-module gwt:devmode
 
 ```
 mvn mvn spring-boot:run
+```
 
 ### Start Webapp
 
-http://localhost:8080/
+http://127.0.0.1:8888/stockwatcher/
 
 ![StockWatcher UI](stockwatcher-ui.png?raw=true "StockWatcher UI")
 
