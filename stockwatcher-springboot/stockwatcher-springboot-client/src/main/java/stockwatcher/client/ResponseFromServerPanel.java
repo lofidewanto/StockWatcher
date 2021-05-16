@@ -186,7 +186,11 @@ public class ResponseFromServerPanel {
 
 		DominoRestConfig.getInstance().setDefaultServiceRoot(StockPriceServiceEndpoint.SERVER_CONTEXT_PATH);
 
-		StockPriceServiceClientFactory.INSTANCE.getPrices(stocks).onSuccess(response -> {
+		String[] stocksArray = stocks.toArray(new String[stocks.size()]);
+		
+		logger.info("Stocks: " + stocksArray);
+		
+		StockPriceServiceClientFactory.INSTANCE.getPrices(stocksArray).onSuccess(response -> {
 			logger.info("Result: " + response);
 			updateTable(response);
 		}).onFailed(failedResponse -> {
