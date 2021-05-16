@@ -1,6 +1,7 @@
 package stockwatcher.client;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -185,13 +186,13 @@ public class ResponseFromServerPanel {
 		DominoRestConfig.initDefaults();
 
 		DominoRestConfig.getInstance().setDefaultServiceRoot(StockPriceServiceEndpoint.SERVER_CONTEXT_PATH);
-
-		String[] stocksArray = stocks.toArray(new String[stocks.size()]);
 		
-		logger.info("Stocks: " + stocksArray);
+		String stocksAsStringWithComma = String.join(",", stocks);
 		
-		StockPriceServiceClientFactory.INSTANCE.getPrices(stocksArray).onSuccess(response -> {
-			logger.info("Result: " + response);
+		logger.info("Stocks: " + stocksAsStringWithComma);
+		
+		StockPriceServiceClientFactory.INSTANCE.getPrices(stocksAsStringWithComma).onSuccess(response -> {
+			logger.info("Result: " + Arrays.toString(response));
 			updateTable(response);
 		}).onFailed(failedResponse -> {
 			logger.info("Error: " + failedResponse.getStatusCode() + "\nMessages: " + failedResponse.getStatusText());

@@ -52,4 +52,10 @@ public class StockPrice implements Serializable {
 	public void setChange(double change) {
 		this.change = change;
 	}
+
+	@Override
+	public String toString() {
+		return "StockPrice [symbol=" + symbol + ", price=" + price + ", change=" + change + "]";
+	}
+	
 }

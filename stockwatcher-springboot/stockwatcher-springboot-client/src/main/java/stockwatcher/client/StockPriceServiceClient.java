@@ -14,5 +14,5 @@ public interface StockPriceServiceClient {
 
 	@GET
 	@Path(StockPriceServiceEndpoint.STOCK_PRICE_REST)
-	public StockPrice[] getPrices(@QueryParam("symbols") String[] symbols);
+	public StockPrice[] getPrices(@QueryParam("symbols") String symbols);
 }
