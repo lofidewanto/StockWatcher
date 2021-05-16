@@ -17,3 +17,9 @@ This example doesn't use the Maven Archetype from TBroyer Maven Plugin.
 the pom.xml.
 
 [stockwatcher-springboot](https://github.com/lofidewanto/stockwatcher/tree/master/stockwatcher-springboot)
+
+### stockwatcher-springboot-webapp: HelloWorld with GWT RPC and Spring Boot
+
+This example uses the Maven Archetype from Nalu Spring Boot.
+
+[stockwatcher-springboot-webapp](https://github.com/lofidewanto/stockwatcher/tree/master/stockwatcher-springboot-webapp)
