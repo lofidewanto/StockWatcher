@@ -82,6 +82,7 @@ public class ResponseFromServerPanel {
 		Timer refreshTimer = new Timer() {
 			@Override
 			public void run() {
+				refreshWatchListWithRpc();
 				refreshWatchListWithRest();
 			}
 		};
