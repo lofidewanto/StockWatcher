@@ -52,5 +52,3 @@ mvn mvn spring-boot:run
 http://127.0.0.1:8888/stockwatcher/
 
 ![StockWatcher UI](stockwatcher-ui.png?raw=true "StockWatcher UI")
-
-```
