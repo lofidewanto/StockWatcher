@@ -17,17 +17,31 @@ cd stockwatcher-springboot
 
 ### Build all first
 
+We need to install the shared library to be able to use it from client and server!
+
 ```
-mvn clean package
+mvn clean install
 ```
 
 ### Run Client GWT
+
+Go to client
+
+```
+cd stockwatcher-springboot-client
+```
 
 ```
 mvn gwt:generate-module gwt:devmode
 ```
 
 ### Run Server Spring Boot
+
+Go to server
+
+```
+cd stockwatcher-springboot-server
+```
 
 ```
 mvn mvn spring-boot:run
