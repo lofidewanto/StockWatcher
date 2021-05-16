@@ -12,7 +12,8 @@ This example uses the Maven Archetype from TBroyer Maven plugin.
 ### stockwatcher-springboot: StockWatcher with Domino REST + GWT RPC and Spring Boot
 
 This example doesn't use the Maven Archetype from TBroyer Maven Plugin. 
-- For the server part it just uses the Spring Initialzr: https://start.spring.io
-- For the client part it uses Maven from TBroyer and its integrated Jetty
+- For the server part it just uses the [Spring Boot Initialzr](https://start.spring.io)
+- For the client part it uses Maven from TBroyer and its integrated Jetty with [GWT Boot](https://github.com/gwtboot/gwt-boot-modules) to simplify 
+the pom.xml.
 
 [stockwatcher-springboot](https://github.com/lofidewanto/stockwatcher/tree/master/stockwatcher-springboot)
