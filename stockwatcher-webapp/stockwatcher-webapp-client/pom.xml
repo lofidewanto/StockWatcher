@@ -49,7 +49,7 @@
 				<artifactId>gwt-maven-plugin</artifactId>
 				<configuration>
 					<moduleName>stockwatcher.client.StockWatcher</moduleName>
-					<moduleShortName>${module.toLowerCase()}</moduleShortName>
+					<moduleShortName>stockwatcher</moduleShortName>
 				</configuration>
 			</plugin>
 		</plugins>
