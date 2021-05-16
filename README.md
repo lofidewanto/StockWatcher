@@ -20,6 +20,6 @@ the pom.xml.
 
 ### stockwatcher-springboot-webapp: HelloWorld with GWT RPC and Spring Boot
 
-This example uses the Maven Archetype from Nalu Spring Boot.
+This example uses the Maven Archetype from [Nalu Spring Boot Archetype](https://github.com/NaluKit/gwt-maven-springboot-archetype).
 
 [stockwatcher-springboot-webapp](https://github.com/lofidewanto/stockwatcher/tree/master/stockwatcher-springboot-webapp)
