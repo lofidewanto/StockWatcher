@@ -18,3 +18,22 @@ cd stockwatcher-springboot
 ```
 mvn clean package
 ```
+
+### Run Client GWT
+
+```
+mvn gwt:generate-module gwt:devmode
+```
+
+### Run Server Spring Boot
+
+```
+mvn mvn spring-boot:run
+
+### Start Webapp
+
+http://localhost:8080/
+
+![StockWatcher UI](stockwatcher-ui.png?raw=true "StockWatcher UI")
+
+```
