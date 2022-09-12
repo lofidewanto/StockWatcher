@@ -1,6 +1,6 @@
 # StockWatcher
 
-Learning from GWT tutorial on [StockWatcher](http://www.gwtproject.org/doc/latest/tutorial/gettingstarted.html) using [GWT Maven](https://tbroyer.github.io/gwt-maven-plugin/) instead of Eclipse plugin.
+Learning from GWT tutorial on [StockWatcher](http://www.gwtproject.org/doc/latest/tutorial/gettingstarted.html) using [GWT Maven](https://tbroyer.github.io/gwt-maven-plugin/) instead of Eclipse plugin. You have 3 alternatives hoy you could implement this:
 
 
 ### (1) stockwatcher-webapp: StockWatcher with GWT RPC and Simple Jetty Server
