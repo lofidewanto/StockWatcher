@@ -5,6 +5,8 @@ Learning from GWT tutorial on [StockWatcher](http://www.gwtproject.org/doc/lates
 
 # stockwatcher-webapp: StockWatcher with GWT RPC and Simple Jetty Server
 
+This is an example using GWT Maven Archetype from TBroyer. The result is simply using Jetty web server.
+
 ## Run in the development
 
 Always from stockwatcher-webapp directory. If you are on the main directory go there first:
