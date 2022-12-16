@@ -1,5 +1,7 @@
 # StockWatcher
 
+Our current build status: ![Build Status GitHub Actions](https://github.com/lofidewanto/stockwatcher/actions/workflows/maven.yml/badge.svg)
+
 Learning from GWT tutorial on [StockWatcher](http://www.gwtproject.org/doc/latest/tutorial/gettingstarted.html) using [GWT Maven](https://tbroyer.github.io/gwt-maven-plugin/) instead of Eclipse plugin. You have 3 alternatives how you could implement this:
 
 
