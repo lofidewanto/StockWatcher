@@ -11,7 +11,7 @@ This example uses the Maven Archetype from TBroyer Maven plugin.
 
 [stockwatcher-webapp](https://github.com/lofidewanto/stockwatcher/tree/master/stockwatcher-webapp)
 
-### (2) stockwatcher-springboot: StockWatcher with Domino REST + GWT RPC and Spring Boot
+### (2) stockwatcher-springboot: StockWatcher with Domino REST + GWT RPC and Spring Boot (jar file)
 
 This example doesn't use the Maven Archetype from TBroyer Maven Plugin. 
 - For the server part it just uses the [Spring Boot Initialzr](https://start.spring.io)
@@ -20,7 +20,7 @@ the pom.xml.
 
 [stockwatcher-springboot](https://github.com/lofidewanto/stockwatcher/tree/master/stockwatcher-springboot)
 
-### (3) stockwatcher-springboot-webapp: HelloWorld with GWT RPC and Spring Boot
+### (3) stockwatcher-springboot-webapp: HelloWorld with GWT RPC and Spring Boot Webapp (war file)
 
 This example uses the Maven Archetype from [Nalu Spring Boot Archetype](https://github.com/NaluKit/gwt-maven-springboot-archetype).
 
